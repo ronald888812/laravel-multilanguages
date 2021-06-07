@@ -2,7 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ProductController;
-use App\Http\Controllers\LocalizationController;
+
 
 /*
 |--------------------------------------------------------------------------
@@ -19,17 +19,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Auth::routes();
+Route::group(['middleware' => ['web']], function () {
+	Route::get('/lang/{lang}', [App\Http\Controllers\LanguageController::class,'switchLang'])->name('lang.switch');
+});
 
+
+Auth::routes();
+Route::get('lang/{language}', [App\Http\Controllers\LocalizationController::class,'switch'])->name('localization.switch');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
  Route::resource('/product', ProductController::class);
 
- Route::get('lang/{language}', 'LocalizationController@switch')->name('localization.switch');
- 
-Route::group(['middleware' => ['web']], function () {
-	
-	Route::get('/lang/{lang}', [App\Http\Controllers\LanguageController::class,'switchLang'])->name('lang.switch');
-
-});
 

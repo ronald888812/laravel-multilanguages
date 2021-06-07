@@ -17,7 +17,7 @@
         <section class="content container-fluid">
             <div class="form-group col-md-12">
                 <div class="pull-right">
-                    {{-- <a href="{{ route('products.create', ['subdomain' => Auth::user()->role]) }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Products</a> --}}
+                    <a href="{{ route('product.create') }}" class="btn btn-success"><i class="fa fa-plus" aria-hidden="true"></i> Tambah Products</a>
                 </div>
             </div>
             <br>

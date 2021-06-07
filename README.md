@@ -17,3 +17,4 @@
 1. LanguageMiddleware and LanguageController for dynamic multi language
 2. create languages in config ->languages
 3. create traits in app->traits-> multilanguages
+4. comment in app->http-> kernel bagian \Illuminate\Session\Middleware\StartSession::class,
