@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\models\Category;
+use App\models\User;
 use Stevebauman\Location\Facades\Location;
 use Stevebauman\Location\Facades\Location as FacadesLocation;
 class ProductController extends Controller
@@ -14,8 +15,14 @@ class ProductController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
+ 
     public function index(Request $request)
     {
+       
+        //dd($_SERVER['SERVER_ADDR']);
+        $host= $request->getHost();
+        $test= User::whereIpAddress($_SERVER['REMOTE_ADDR']);
+        // dd($test);
         if ($position = Location::get()) {
             echo $position->ip; 
             echo $position->countryName;
