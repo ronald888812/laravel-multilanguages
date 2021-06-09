@@ -174,6 +174,7 @@ return [
         // App\Providers\BroadcastServiceProvider::class,
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
+        Stevebauman\Location\LocationServiceProvider::class,
 
     ],
 
@@ -189,7 +190,7 @@ return [
     */
 
     'aliases' => [
-
+        'Location' => 'Stevebauman\Location\Facades\Location',
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

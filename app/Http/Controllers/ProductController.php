@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\models\Category;
+use Stevebauman\Location\Facades\Location;
+use Stevebauman\Location\Facades\Location as FacadesLocation;
 class ProductController extends Controller
 {
     /**
@@ -14,7 +16,14 @@ class ProductController extends Controller
      */
     public function index(Request $request)
     {
-     
+        if ($position = Location::get()) {
+            echo $position->ip; 
+            echo $position->countryName;
+            echo $position->regionName;
+            echo $position->regionCode;
+        } else {
+            echo "Can't fetch!";
+        }    
         $products=Product::all();
         return view('products.index',compact('products'));
     }
